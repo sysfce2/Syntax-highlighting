@@ -151,7 +151,33 @@ public:
         Error,
         //! Text style for attributes that do not match any of the other default
         //! styles.
-        Others
+        Others,
+        //! Text style for class types
+        Class,
+        //! Text style for enum types
+        Enum,
+        //! Text style for enumerator values
+        Enumerator,
+        //! Text style for namespaces
+        Namespace,
+        //! Text style for type aliases
+        TypeAlias,
+        //! Text style for function parameters
+        FunctionParameter,
+        //! Text style for type parameters
+        TypeParameter,
+        //! Text style for global variables
+        GlobalVariable,
+        //! Text style for object member variables local to the current context
+        LocalMemberVariable,
+        //! Text style for object member functions local to the current context
+        LocalMemberFunction,
+        //! Text style for object member variables inherited into the current context
+        InheritedMemberVariable,
+        //! Text style for object member functions inherited into the current context
+        InheritedMemberFunction,
+        //! Text style for preprocessor functions
+        PreprocessorFunction,
     };
     Q_ENUM(TextStyle)
 

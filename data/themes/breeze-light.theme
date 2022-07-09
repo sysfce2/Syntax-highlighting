@@ -144,6 +144,58 @@
         "Others" : {
             "text-color" : "#006e28",
             "selected-text-color" : "#006e28"
+        },
+        "Class" : {
+            "text-color" : "#006e28",
+            "selected-text-color" : "#006e28"
+        },
+        "Enum" : {
+            "text-color" : "#bf0303",
+            "selected-text-color" : "#9c0e0e"
+        },
+        "Enumerator" : {
+            "text-color" : "#e31616",
+            "selected-text-color" : "#9c0e0e"
+        },
+        "Namespace" : {
+            "text-color" : "#bf0303",
+            "selected-text-color" : "#9c0e0e"
+        },
+        "TypeAlias" : {
+            "text-color" : "#3daee9",
+            "selected-text-color" : "#fcfcfc"
+        },
+        "FunctionParameter" : {
+            "text-color" : "#0057ae",
+            "selected-text-color" : "#00316e"
+        },
+        "TypeParameter" : {
+            "text-color" : "#006e28",
+            "selected-text-color" : "#006e28"
+        },
+        "GlobalVariable" : {
+            "text-color" : "#0057ae",
+            "selected-text-color" : "#00316e"
+        },
+        "LocalMemberVariable" : {
+            "text-color" : "#b08000",
+            "selected-text-color" : "#805c00"
+        },
+        "LocalMemberFunction" : {
+            "text-color" : "#ca60ca",
+            "selected-text-color" : "#a44ea4"
+        },
+        "InheritedMemberVariable" : {
+            "text-color" : "#aa5500",
+            "selected-text-color" : "#5e2f00"
+        },
+        "InheritedMemberFunction" : {
+            "text-color" : "#644a9b",
+            "selected-text-color" : "#452886"
+        },
+        "PreprocessorFunction" : {
+            "text-color" : "#006e28",
+            "selected-text-color" : "#006e28"
         }
    },
     "editor-colors": {
