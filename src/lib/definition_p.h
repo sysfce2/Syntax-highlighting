@@ -99,6 +99,7 @@ public:
     QString section;
     QString style;
     QString indenter;
+    QString variables;
     QString author;
     QString license;
     QVector<QString> mimetypes;

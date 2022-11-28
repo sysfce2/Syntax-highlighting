@@ -6,6 +6,7 @@
           version="2"
           kateversion="5.0"
           indenter="cstyle"
+          variables="indent-width 2; tab-width 2; replace-tabs on;"
           extensions="*.dart"
           mimetype="text/x-dart"
           priority="1"

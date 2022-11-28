@@ -231,6 +231,12 @@ public:
     QString license() const;
 
     /**
+     * Additional variables for this definition
+     * e.g., indent-width 4; replace-tabs on;
+     */
+    QString variables() const;
+
+    /**
      * @}
      *
      * @name Advanced Definition Data

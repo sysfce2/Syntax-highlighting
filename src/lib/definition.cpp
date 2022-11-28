@@ -149,6 +149,11 @@ QString Definition::license() const
     return d->license;
 }
 
+QString Definition::variables() const
+{
+    return d->variables;
+}
+
 bool Definition::isWordDelimiter(QChar c) const
 {
     d->load();
@@ -431,6 +436,7 @@ bool DefinitionData::loadMetaData(const QString &file, const QCborMap &obj)
     author = obj.value(QLatin1String("author")).toString();
     license = obj.value(QLatin1String("license")).toString();
     indenter = obj.value(QLatin1String("indenter")).toString();
+    variables = obj.value(QLatin1String("variables")).toString();
     hidden = obj.value(QLatin1String("hidden")).toBool();
     fileName = file;
 

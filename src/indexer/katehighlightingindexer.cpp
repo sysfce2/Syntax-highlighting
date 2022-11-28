@@ -2575,6 +2575,42 @@ bool checkExtensions(QStringView extensions)
     return true;
 }
 
+bool checkVariables(const QString &varLine)
+{
+    if (varLine.isEmpty()) {
+        return true;
+    }
+
+    const QStringList acceptable = {
+        QStringLiteral("indent-width"),
+        QStringLiteral("tab-width"),
+        QStringLiteral("replace-tabs"),
+        QStringLiteral("remove-trailing-spaces"),
+    };
+
+    const QStringList vars = varLine.split(QLatin1String("; "));
+    for (const auto &var : vars) {
+        bool anyStartsWith = std::any_of(acceptable.begin(), acceptable.end(), [var](const QString &a) {
+            return var.startsWith(a);
+        });
+
+        if (!anyStartsWith) {
+            qWarning() << "Unknown variable: " << var << ", acceptable vars are: " << acceptable;
+            return false;
+        }
+
+        const QString &remTrailSpace = acceptable[3];
+        Q_ASSERT(QStringLiteral("remove-trailing-spaces") == remTrailSpace);
+        if (var.startsWith(remTrailSpace)) {
+            const auto value = var.mid(remTrailSpace.size() + 1, 3);
+            if (value != QStringLiteral("all")) {
+                qWarning() << "Unknown remove-trailing-spaces value:" << value << ", only acceptable value is, 'all'";
+                return false;
+            }
+        }
+    }
+    return true;
+}
 }
 
 int main(int argc, char *argv[])
@@ -2609,7 +2645,7 @@ int main(int argc, char *argv[])
     // text attributes
     const QStringList textAttributes = QStringList() << QStringLiteral("name") << QStringLiteral("section") << QStringLiteral("mimetype")
                                                      << QStringLiteral("extensions") << QStringLiteral("style") << QStringLiteral("author")
-                                                     << QStringLiteral("license") << QStringLiteral("indenter");
+                                                     << QStringLiteral("license") << QStringLiteral("indenter") << QStringLiteral("variables");
 
     // index all given highlightings
     HlFilesChecker filesChecker;
@@ -2657,6 +2693,11 @@ int main(int argc, char *argv[])
         if (!checkExtensions(hl[QStringLiteral("extensions")].toString())) {
             qWarning() << hlFilename << "'extensions' wildcards invalid:" << hl[QStringLiteral("extensions")].toString();
             anyError = 23;
+        }
+
+        if (!checkVariables(hl[QStringLiteral("variables")].toString())) {
+            qWarning() << hlFilename << "'variables' invalid:" << hl[QStringLiteral("variables")].toString();
+            anyError = 24;
         }
 
         // numerical attributes

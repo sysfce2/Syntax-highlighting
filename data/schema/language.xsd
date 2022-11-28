@@ -138,6 +138,7 @@
       license:     License for this hl file [optional]
       indenter:    Name of the Indenter to use for this highlighting mode per default, like "cstyle" [optional]
       hidden:      Should it be hidden in menu [boolean, optional, default=false]
+      variables:   List of variables that can be used to modify editor behavior for a language. For e.g., indent-width 4; replace-tabs on;
 
     TODO
       - Which matches are affected by casesensitive? keyword, RegExpr, StringDetect, WordDetect...?
@@ -165,6 +166,7 @@
       <xs:attribute name="author"/>
       <xs:attribute name="license"/>
       <xs:attribute name="indenter"/>
+      <xs:attribute name="variables"/>
       <xs:attribute name="hidden" type="xs:boolean"/>
     </xs:complexType>
   </xs:element>
